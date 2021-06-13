@@ -7,6 +7,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 class RobotDriver():
     driver_options = webdriver.ChromeOptions()
+    driver_options.add_argument("--headless")
     driver_options.add_argument("--incognito")
     driver_options.add_argument("--start-maximized")
 
