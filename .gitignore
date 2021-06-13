@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/Resources/board-tracker-e04b49312092.json
+/Resources/board-tracker-token.json
+/Resources/board-tracker_274683942061-8mij18mtpvr6tklhbblbfcie94cad7j7.apps.googleusercontent.com.json
