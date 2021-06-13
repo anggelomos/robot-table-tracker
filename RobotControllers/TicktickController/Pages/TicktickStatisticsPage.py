@@ -19,7 +19,7 @@ class TicktickStatisticsPage():
 
     def go_to_focus(self):
         self.focus_tab.click()
-        time.sleep(1)
+        time.sleep(3)
 
     def get_focused_time(self) -> str:
         self.load_focus_page()
@@ -27,7 +27,7 @@ class TicktickStatisticsPage():
 
     def go_to_task(self):
         self.task_tab.click()
-        time.sleep(1)
+        time.sleep(3)
 
     def get_completion_rate(self) -> str:
         self.load_task_page()

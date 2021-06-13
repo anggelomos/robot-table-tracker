@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.expected_conditions import presence_of_element_located
 from selenium.webdriver.support.wait import WebDriverWait
@@ -6,8 +7,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 class RobotDriver():
-    driver_options = webdriver.ChromeOptions()
+    driver_options = Options()
     driver_options.add_argument("--headless")
+    driver_options.add_argument("--disable-gpu")
     driver_options.add_argument("--incognito")
     driver_options.add_argument("--start-maximized")
 
