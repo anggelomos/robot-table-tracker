@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/robot-table-tracker.iml" filepath="$PROJECT_DIR$/.idea/robot-table-tracker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/robot-board-tracker.iml" filepath="$PROJECT_DIR$/.idea/robot-board-tracker.iml" />
     </modules>
   </component>
 </project>

@@ -5,7 +5,7 @@ import base64
 
 class TestData():
 
-    project_name = "robot-table-tracker"
+    project_name = "robot-board-tracker"
     project_base_path = [path for path in sys.path if re.search(r"robot-table-tracker$", path)][0]
 
     ticktick_signin_url = "https://ticktick.com/signin"
