@@ -74,7 +74,4 @@ class GSheetsController(BaseController):
                                                             ))\
                                 .execute()
 
-g_cont = GSheetsController()
-g_cont.upload_board_tracker_data(['2021-06-13', 2.58, 1.25, 50])
-
 

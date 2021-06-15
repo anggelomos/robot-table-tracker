@@ -10,7 +10,7 @@ class RescuetimeController(BaseController):
     current_date = date.today().strftime("%Y-%m-%d")
     hours_endpoint = f"https://www.rescuetime.com/anapi/data?key={API_key}&perspective=interval&restrict_kind=productivity&interval=hour&restrict_begin={current_date}&restrict_end={current_date}&format=json"
 
-    def get_hours(self, hour_type):
+    def get_hours(self, current_date, hour_type):
         retreived_hours = 0
         hours_request = requests.get(RescuetimeController.hours_endpoint).json()
 
@@ -29,4 +29,4 @@ class RescuetimeController(BaseController):
 
         retreived_hours = round(retreived_hours/3600, 2)
 
-        return  self.current_date, retreived_hours
+        return  current_date, retreived_hours
