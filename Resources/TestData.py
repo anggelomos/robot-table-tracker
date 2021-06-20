@@ -3,10 +3,13 @@ import sys
 import re
 import base64
 
-class TestData():
+
+class TestData:
 
     project_name = "robot-board-tracker"
-    project_base_path = [path for path in sys.path if re.search(r"robot-board-tracker$", path)][0]
+    project_base_path = [
+        path for path in sys.path if re.search(r"robot-board-tracker$", path)
+    ][0]
 
     ticktick_signin_url = "https://ticktick.com/signin"
     ticktick_statistics_url = "https://ticktick.com/webapp/#statistics"
@@ -15,18 +18,21 @@ class TestData():
     ticktick_password = base64.b64decode(os.getenv("TK_PASS")).decode("utf-8")
     ticktick_habit_list = ["Leer", "Hacer ejercicio", "Meditar", "Estudiar"]
 
-    google_credential_path = project_base_path + "\\Resources\\board-tracker_274683942061-8mij18mtpvr6tklhbblbfcie94cad7j7.apps.googleusercontent.com.json"
+    google_credential_path = (
+        project_base_path
+        + "\\Resources\\board-tracker_274683942061-8mij18mtpvr6tklhbblbfcie94cad7j7.apps.googleusercontent.com.json"
+    )
     google_token_path = project_base_path + "\\Resources\\board-tracker-token.json"
     id_sheet_board_tracker = "1dq9nlVUsBtW4y7nVL2h-QJdjD8-Fyhj0lUHbekIZEhY"
-    range_current_date = "Data!D2:D2"
-    range_write_board_data = "Data!A2:K2"
+    writing_row = 3
+    range_current_date = f"Data!D{writing_row}:D{writing_row}"
+    range_write_board_data = f"Data!A{writing_row}:L{writing_row}"
 
     @classmethod
-    def get_body_request_update_sheet(cls,values, major_dimension:str = "ROWS") -> dict:
-        body_request = {
-                        "majorDimension": major_dimension,
-                        "values": values
-                    }
+    def get_body_request_update_sheet(
+        cls, values, major_dimension: str = "ROWS"
+    ) -> dict:
+        body_request = {"majorDimension": major_dimension, "values": values}
 
         return body_request
 
@@ -35,11 +41,11 @@ class TestData():
         body_request = {
             "requests": [
                 {
-                    'insertDimension': {
-                        'range': {
-                            'dimension': dimension,
-                            'startIndex': start_index,
-                            'endIndex': end_index
+                    "insertDimension": {
+                        "range": {
+                            "dimension": dimension,
+                            "startIndex": start_index,
+                            "endIndex": end_index,
                         }
                     }
                 }
@@ -47,4 +53,3 @@ class TestData():
         }
 
         return body_request
-

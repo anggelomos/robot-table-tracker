@@ -1,9 +1,7 @@
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.support.expected_conditions import presence_of_element_located
 from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
@@ -13,8 +11,7 @@ from Resources.expected_conditions import any_element_with_locators_is_visible
 
 class RobotDriver():
     driver_options = Options()
-    driver_options.add_argument("--headless")
-    driver_options.add_argument("--disable-gpu")
+    driver_options.headless = True
     driver_options.add_argument("--incognito")
     driver_options.add_argument("--start-maximized")
 

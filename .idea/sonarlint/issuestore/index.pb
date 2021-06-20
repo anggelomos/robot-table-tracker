@@ -5,8 +5,6 @@ i
 9Lib/site-packages/selenium/webdriver/remote/webelement.py,8\8\88701f7c52d31db76eeb0d63d4a19a17754c5439
 k
 ;Lib/site-packages/selenium/webdriver/remote/errorhandler.py,7\a\7a92720e7b3bd2265543463bae8da21d8ae2e706
-m
-=RobotControllers/TicktickController/Pages/TicktickMainPage.py,6\5\651c250db69784028fe7e1f5c5dc9e115b8b0dc9
 R
 "RobotControllers/BaseController.py,a\6\a636eb7db504f7299da4927f8bc1fa93ce0ee5f9
 :
@@ -23,3 +21,7 @@ Y
 pyvenv.cfg,c\8\c83673bacea4b327fb4a1a62dbd9e8a7efd41ab3
 E
 board-tracker-run.bat,8\f\8fdd81d1569d95cea693b07ae5c3d91ac34b8892
+R
+"Resources/exceptions/exceptions.py,d\4\d4db077b3737d90d099f0e0e8dc8e46170ce283f
+P
+ Resources/expected_conditions.py,f\b\fbd2060bb062245abaa161457a06dc5877d73ccd

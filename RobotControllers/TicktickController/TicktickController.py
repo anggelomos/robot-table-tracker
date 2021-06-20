@@ -1,4 +1,5 @@
 from Resources.TestData import TestData
+from Resources.Utilities import Utilities
 from RobotControllers.BaseController import BaseController
 from RobotControllers.TicktickController.Pages.TicktickHabitsPage import TicktickHabitsPage
 from RobotControllers.TicktickController.Pages.TicktickLoginPage import TicktickLoginPage
@@ -8,8 +9,6 @@ import re
 
 
 class TicktickController(BaseController):
-
-
     def go_to_main_page(self):
         self.robot_driver.get_driver().get(TestData.ticktick_signin_url)
 
@@ -37,9 +36,14 @@ class TicktickController(BaseController):
         extracted_hours = re.findall("\d+", raw_focused_hours)
         focused_hours = float(extracted_hours[0])
         focused_minutes = float(extracted_hours[1])
-        focused_time = round(focused_hours + focused_minutes/60, 2)
+        focused_time = focused_hours + focused_minutes / 60
+        focused_time = Utilities().round_number(focused_time, round_zero=False)
 
         return focused_time
+
+    def get_amount_of_pomos(self):
+        statistics_page = TicktickStatisticsPage(self.robot_driver)
+        return int(statistics_page.get_amount_of_pomos())
 
     def get_task_completion_percentage(self):
         self.go_to_statistics()
@@ -59,7 +63,9 @@ class TicktickController(BaseController):
         habits_page = TicktickHabitsPage(self.robot_driver)
 
         for habit in TestData.ticktick_habit_list:
-            habit_is_checked = self.robot_driver.is_element_present(habits_page.dynamic_habit_checked, habit)
+            habit_is_checked = self.robot_driver.is_element_present(
+                habits_page.dynamic_habit_checked, habit
+            )
             if habit_is_checked:
                 habits[habit] = "|"
             else:

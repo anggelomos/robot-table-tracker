@@ -1,3 +1,4 @@
+from Resources.Utilities import Utilities
 from RobotControllers.BaseController import BaseController
 
 import os
@@ -11,7 +12,7 @@ class RescuetimeController(BaseController):
     hours_endpoint = f"https://www.rescuetime.com/anapi/data?key={API_key}&perspective=interval&restrict_kind=productivity&interval=hour&restrict_begin={current_date}&restrict_end={current_date}&format=json"
 
     def get_hours(self, current_date, hour_type):
-        retreived_hours = 0
+        retrieved_hours = 0
         hours_request = requests.get(RescuetimeController.hours_endpoint).json()
 
         if hour_type == "productive":
@@ -25,8 +26,8 @@ class RescuetimeController(BaseController):
 
         for hour_type in hours_request["rows"]:
             if hour_type[-1] in hour_code:
-                retreived_hours += hour_type[1]
+                retrieved_hours += hour_type[1]
 
-        retreived_hours = round(retreived_hours/3600, 2)
+        retrieved_hours = Utilities().round_number(retrieved_hours/3600)
 
-        return  current_date, retreived_hours
+        return current_date, retrieved_hours

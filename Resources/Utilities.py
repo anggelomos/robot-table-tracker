@@ -1,6 +1,7 @@
 import calendar
 from datetime import date
 
+
 class Utilities():
 
     @classmethod
@@ -23,5 +24,11 @@ class Utilities():
 
         for week_number, week in enumerate(calendar.monthcalendar(year, month)):
             if day in week:
-                return week_number+1
+                return week_number + 1
 
+    @staticmethod
+    def round_number(number, amount_of_digits=1, round_zero=True):
+        rounded_number = round(number, amount_of_digits)
+        if rounded_number == 0 and round_zero:
+            return 0
+        return rounded_number
